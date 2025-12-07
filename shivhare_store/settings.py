@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure-%4f4#^%d2sfl%@-8g&pju((=0h^0wq3lxk-1a$yv^%-3b)5ov&
 import os
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# ENABLED TEMPORARILY TO FIX CSS LOADING ISSUES
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.vercel.app']
 
