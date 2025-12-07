@@ -17,10 +17,14 @@ class PageVisitMiddleware:
             else:
                 ip = request.META.get('REMOTE_ADDR')
 
-            PageVisit.objects.create(
-                path=request.path,
-                ip_address=ip,
-                user_agent=request.META.get('HTTP_USER_AGENT', '')
-            )
+            try:
+                PageVisit.objects.create(
+                    path=request.path,
+                    ip_address=ip,
+                    user_agent=request.META.get('HTTP_USER_AGENT', '')
+                )
+            except Exception:
+                # Fail silently on Vercel (Read-only DB)
+                pass
             
         return response
