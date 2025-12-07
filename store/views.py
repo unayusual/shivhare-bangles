@@ -18,32 +18,38 @@ def product_detail(request, slug):
     # Simple analytics logging (synchronous for now, ideally async/celery)
     # Log Interaction
     if not request.session.get(f'viewed_{product.id}'):
-        ProductInteraction.objects.create(
-            product=product,
-            interaction_type='VIEW'
-        )
-        request.session[f'viewed_{product.id}'] = True
+        try:
+            ProductInteraction.objects.create(
+                product=product,
+                interaction_type='VIEW'
+            )
+            request.session[f'viewed_{product.id}'] = True
+        except Exception:
+            pass # Read-only DB
 
     if request.method == 'POST':
         name = request.POST.get('name')
         contact = request.POST.get('contact')
         message = request.POST.get('message')
         
-        Inquiry.objects.create(
-            product=product,
-            customer_name=name,
-            contact_number=contact,
-            message=message
-        )
-        
-        # Log Enquire Click/Submit
-        ProductInteraction.objects.create(
-            product=product,
-            interaction_type='ENQUIRE_CLICK',
-            metadata={'customer': name}
-        )
-        
-        messages.success(request, 'Your inquiry has been sent successfully! We will contact you shortly.')
+        try:
+            Inquiry.objects.create(
+                product=product,
+                customer_name=name,
+                contact_number=contact,
+                message=message
+            )
+            
+            # Log Enquire Click/Submit
+            ProductInteraction.objects.create(
+                product=product,
+                interaction_type='ENQUIRE_CLICK',
+                metadata={'customer': name}
+            )
+            messages.success(request, 'Your inquiry has been sent successfully! We will contact you shortly.')
+        except Exception:
+            messages.error(request, 'Inquiry logging is disabled on this Live Demo (Read-only System). Please call us directly.')
+            
         return redirect('product_detail', slug=slug)
 
     return render(request, 'store/product_detail.html', {'product': product})
