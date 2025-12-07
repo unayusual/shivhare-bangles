@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Shivhare Bangle Store{% endblock %}
+
+{% block content %}
+<div class="about-page">
+    <section class="about-hero">
+        <div class="container">
+            <h2>Our Legacy of Elegance</h2>
+            <p>Trusted B2B Wholsalers since 2006</p>
+        </div>
+    </section>
+
+    <section class="container about-content">
+        <div class="story-section">
+            <h3 class="section-heading">Our Story</h3>
+            <div class="story-text">
+                <p>Our journey began in 2006 as a small, humble firm with a big vision. Over the years, through
+                    unwavering dedication and a commitment to quality, we have built a reputation of trust in the
+                    market. We pride ourselves on maintaining strong, long-lasting relationships with our clients.</p>
+                <p>Now proudly run by the <strong>2nd generation</strong>, we continue to uphold our founding values
+                    while embracing modern designs and efficiency. We are your legal and authentic partner in the glass
+                    bangle wholesale market.</p>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h3 class="section-heading">Our Leadership</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="img-wrapper">
+                        <img src="{% static 'img/sonu-shivhare.jpg' %}" alt="Sonu Shivhare - Founder & MD">
+                    </div>
+                    <h4>Sonu Shivhare</h4>
+                    <p class="role">Founder & Managing Director</p>
+                </div>
+                <div class="team-card">
+                    <div class="img-wrapper">
+                        <img src="{% static 'img/harshit-shivhare.jpg' %}" alt="Harshit Shivhare - Executive Director">
+                    </div>
+                    <h4>Harshit Shivhare</h4>
+                    <p class="role">Executive Director</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="legal-section">
+            <h3 class="section-heading">Official Verification</h3>
+            <div class="gst-box">
+                <p class="gst-label">GSTIN (Goods and Services Tax Identification Number)</p>
+                <p class="gst-number">09DKBPS2311N1ZX</p>
+                <p class="gst-sub">Verified & Authentic Business</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

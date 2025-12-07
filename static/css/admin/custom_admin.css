@@ -1,0 +1,75 @@
+/* Custom Admin Branding */
+:root {
+    --primary-color: #3CB3C2;
+    --secondary-color: #0093DC;
+    --accent: #FFD700;
+    --text-color: #1A1A2E;
+    --header-bg: var(--primary-color);
+    --header-text: #ffffff;
+    --link-color: var(--secondary-color);
+}
+
+/* Header */
+#header {
+    background: var(--header-bg) !important;
+    color: var(--header-text) !important;
+    border-bottom: 3px solid var(--accent);
+}
+
+#header a {
+    color: var(--header-text) !important;
+}
+
+div.breadcrumbs {
+    background: #f0f8fa !important;
+    color: var(--text-color) !important;
+}
+
+div.breadcrumbs a {
+    color: var(--secondary-color) !important;
+}
+
+/* Buttons */
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button {
+    background: var(--primary-color) !important;
+    color: white !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none !important;
+    border-radius: 4px;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+.button:hover,
+input[type=submit]:hover,
+input[type=button]:hover {
+    background: var(--secondary-color) !important;
+}
+
+.button.default,
+input[type=submit].default,
+.submit-row input.default {
+    background: var(--secondary-color) !important;
+}
+
+/* Modules */
+.module caption,
+.module h2 {
+    background: #e0f2f5 !important;
+    color: var(--text-color) !important;
+}
+
+a:link,
+a:visited {
+    color: var(--link-color);
+}
+
+div.results table thead th {
+    background: #f0f8fa !important;
+    color: var(--text-color) !important;
+}

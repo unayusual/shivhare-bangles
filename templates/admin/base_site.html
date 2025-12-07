@@ -1,0 +1,16 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}{{ title }} | Shivhare Bangle Store Admin{% endblock %}
+
+{% block extrastyle %}
+<!-- Load Default Admin Styles First -->
+{{ block.super }}
+<!-- Inject Custom Premium Theme -->
+<link rel="stylesheet" type="text/css" href="/static/css/admin_custom.css">
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">Shivhare Bangle Store</a>
+</h1>
+{% endblock %}

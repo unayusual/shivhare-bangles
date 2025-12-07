@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero b2b-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Authentic Glass Bangles</h1>
+        <p class="subtitle">Direct Manufacturer to Wholesaler | Premium B2B Supply</p>
+        <p class="tagline">"Adorn Your Business with the Shine of Tradition"</p>
+        <div class="cta-group">
+            <a href="{% url 'catalog' %}" class="btn btn-primary">Browse Wholesale Catalog</a>
+            <a href="{% url 'about' %}" class="btn btn-outline-light">Our Heritage</a>
+        </div>
+    </div>
+</section>
+
+<section class="featured-section container">
+    <h3 class="section-title">Featured Collections</h3>
+    <div class="product-grid">
+        {% for product in featured_products %}
+        <div class="product-card">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+            <div class="placeholder-img">No Image</div>
+            {% endif %}
+            <h4>{{ product.name }}</h4>
+            <p class="price">₹{{ product.price }}</p>
+            <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

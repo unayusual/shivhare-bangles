@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Collection - Shivhare Bangle Store{% endblock %}
+
+{% block content %}
+<div class="container page-header">
+    <h2>Our Complete Collection</h2>
+</div>
+
+<div class="container">
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+            <div class="placeholder-img">No Image</div>
+            {% endif %}
+            <h4>{{ product.name }}</h4>
+            <p class="category">{{ product.category }}</p>
+            <p class="price">₹{{ product.price }}</p>
+            <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline">View Details</a>
+        </div>
+        {% empty %}
+        <p>No products found in the catalog yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

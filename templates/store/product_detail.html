@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - Shivhare Bangle Store{% endblock %}
+
+{% block content %}
+<div class="container product-detail-container">
+    <div class="product-image-col">
+        {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="detail-image">
+        {% else %}
+        <div class="placeholder-img large">No Image Available</div>
+        {% endif %}
+    </div>
+
+    <div class="product-info-col">
+        <h2 class="product-title">{{ product.name }}</h2>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-price">₹{{ product.price }}</p>
+        <div class="product-description">
+            {{ product.description|linebreaks }}
+        </div>
+
+        <div class="enquiry-box">
+            <h3>Interested? Send an Enquiry</h3>
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="text" name="contact" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Message (Optional)</label>
+                    <textarea name="message" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Enquiry</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
