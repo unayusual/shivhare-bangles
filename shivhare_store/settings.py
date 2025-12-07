@@ -130,6 +130,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Use non-manifest storage to avoid 500 errors if a file is missing
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+WHITENOISE_USE_FINDERS = True
 
 # Media files (User uploaded images)
 MEDIA_URL = '/media/'
