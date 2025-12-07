@@ -1,30 +1,50 @@
 #!/bin/bash
 
-# 1. Initialize Git
+# 1. Initialize Git (if needed)
 if [ ! -d ".git" ]; then
     echo "Initializing Git repository..."
     git init
     git branch -M main
+    git add .
+    git commit -m "Initial commit of Shivhare Bangle Store"
 else
     echo "Git repository already initialized."
 fi
 
-# 2. Add files
-echo "Adding files..."
-git add .
+# 2. Check if remote exists
+if git remote | grep -q 'origin'; then
+    echo "Remote 'origin' already exists."
+    echo "Removing old origin to ensure we use the correct one..."
+    git remote remove origin
+fi
 
-# 3. Commit
-echo "Committing files..."
-git commit -m "Initial commit of Shivhare Bangle Store"
+# 3. Prompt for URL
+echo ""
+echo "----------------------------------------------------------------"
+echo "IMPORTANT: You must create a new EMPTY repository on GitHub.com"
+echo "Go to https://github.com/new and create one now."
+echo "----------------------------------------------------------------"
+echo ""
+read -p "Paste your HTTPS Repository URL here (e.g., https://github.com/unayusual/repo.git): " REPO_URL
 
-# 4. Instructions
+if [ -z "$REPO_URL" ]; then
+    echo "No URL provided. Exiting."
+    exit 1
+fi
+
+# 4. Add Remote and Push
+echo ""
+echo "Setting remote to: $REPO_URL"
+git remote add origin "$REPO_URL"
+
+echo "Attempting to push code..."
+echo "NOTE: When promised for Password, use your Personal Access Token (NOT your Google password)."
+echo ""
+git push -u origin main
+
 echo ""
 echo "--------------------------------------------------------"
-echo "Success! Local repository is ready."
-echo "--------------------------------------------------------"
-echo "To push to GitHub, run these two commands:"
-echo ""
-echo "  1. git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git"
-echo "  2. git push -u origin main"
-echo ""
+echo "If the push succeeded, your site is now on GitHub!"
+echo "If it failed due to authentication, you need a Token:"
+echo "https://github.com/settings/tokens"
 echo "--------------------------------------------------------"
