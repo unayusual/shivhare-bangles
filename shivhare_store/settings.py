@@ -95,6 +95,10 @@ if 'DATABASE_URL' in os.environ:
     DATABASES['default'] = dj_database_url.config(
         default=os.environ.get('DATABASE_URL')
     )
+elif not DEBUG:
+    # In production (DEBUG=False), fail if no DATABASE_URL
+    # This prevents accidental SQLite fallback which crashes on read-only FS
+    raise ValueError("DATABASE_URL environment variable required in production!")
 
 
 # Password validation
