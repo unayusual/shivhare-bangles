@@ -1,0 +1,175 @@
+/* Ultra Premium Admin Theme - Strict High Visibility */
+/* FORCE LIGHT THEME REGARDLESS OF PREFERENCE OR TOGGLE */
+:root,
+[data-theme="dark"],
+body[data-theme="dark"],
+html,
+body {
+    /* Main Pallete */
+    --primary-color: #004d40;
+    /* Deep Teal */
+    --secondary-color: #00695c;
+    /* Lighter Teal */
+    --accent-color: #ffd700;
+    /* Gold */
+    --bg-color: #ffffff;
+    /* Pure White */
+    --text-color: #1a1a1a;
+    /* Nearly Black */
+    --sidebar-bg: #f8f9fa;
+    /* Very Light Grey */
+    --border-color: #e0e0e0;
+    --success-color: #2e7d32;
+    --error-color: #c62828;
+
+    /* OVERRIDE DJANGO DEFAULT VARS - Force Light Values */
+    --primary: var(--primary-color) !important;
+    --secondary: var(--secondary-color) !important;
+    --accent: var(--accent-color) !important;
+    --primary-fg: #fff !important;
+    --body-fg: var(--text-color) !important;
+    --body-bg: var(--bg-color) !important;
+    --body-quiet-color: #666 !important;
+    --body-loud-color: #000 !important;
+    --header-color: #fff !important;
+    --header-bg: var(--primary-color) !important;
+    --header-link-color: rgba(255, 255, 255, 0.9) !important;
+
+    /* Breadcrumbs */
+    --breadcrumbs-bg: #f1f3f4 !important;
+    --breadcrumbs-link-fg: var(--secondary-color) !important;
+    --breadcrumbs-fg: var(--text-color) !important;
+
+    /* Links */
+    --link-fg: var(--secondary-color) !important;
+    --link-hover-color: var(--primary-color) !important;
+    --link-selected-fg: var(--primary-color) !important;
+
+    /* Dark mode overrides - FORCE THEM TO LIGHT */
+    --darkened-bg: #f8f9fa !important;
+    /* was dark */
+    --selected-bg: #e0f2f1 !important;
+    /* was dark */
+    --selected-row: #e0f2f1 !important;
+    /* was dark */
+    --button-bg: var(--primary-color) !important;
+    --button-fg: #fff !important;
+    --close-button-bg: #777 !important;
+    --close-button-hover-bg: #555 !important;
+
+    /* Inputs */
+    --object-tools-bg: #ffffff !important;
+    --object-tools-fg: var(--primary-color) !important;
+}
+
+/* AGGRESSIVELY HIDE THEME TOGGLE */
+.theme-toggle,
+#theme-toggle,
+button.theme-toggle,
+[title="Toggle theme"],
+button[aria-label="Toggle theme"],
+.toggle-nav-sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
+
+/* GLOBAL RESET & ENFORCEMENT */
+body,
+body.app-admin,
+body.login {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    font-family: 'Segoe UI', system-ui, sans-serif !important;
+}
+
+/* HEADER */
+#header {
+    background: var(--primary-color) !important;
+    color: #fff !important;
+    border-bottom: 3px solid var(--accent-color) !important;
+}
+
+#header h1,
+#header #branding h1 {
+    color: #fff !important;
+}
+
+/* SIDEBAR - Force Light */
+.module,
+.sidebar,
+#nav-sidebar,
+.nav-sidebar,
+.sticky {
+    background: var(--sidebar-bg) !important;
+    color: var(--text-color) !important;
+    border-right: 1px solid var(--border-color) !important;
+}
+
+/* MODULES & DASHBOARD */
+.module,
+.card,
+.paper {
+    background: #fff !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.module h2,
+.module caption,
+.card-header {
+    background: #f1f3f4 !important;
+    color: var(--primary-color) !important;
+}
+
+/* TABLES */
+table,
+tr,
+td,
+th {
+    background: #fff !important;
+    color: var(--text-color) !important;
+}
+
+thead,
+thead th {
+    background: #e0f2f1 !important;
+    color: var(--primary-color) !important;
+    border-bottom: 2px solid var(--secondary-color) !important;
+}
+
+tr:nth-child(even) {
+    background: #fafafa !important;
+}
+
+tr:hover {
+    background: #f0f8ff !important;
+}
+
+/* INPUTS */
+input,
+select,
+textarea,
+.vTextField {
+    background: #fff !important;
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+}
+
+/* FILTER */
+#changelist-filter {
+    background-color: #fff !important;
+    color: var(--text-color) !important;
+    border-left: 1px solid var(--border-color) !important;
+}
+
+#changelist-filter h2 {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+#changelist-filter a {
+    color: var(--text-color) !important;
+}
