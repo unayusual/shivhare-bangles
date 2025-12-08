@@ -12,8 +12,9 @@ from dotenv import load_dotenv
 
 from django.core.wsgi import get_wsgi_application
 
-project_folder = os.path.expanduser('~/shivhare-bangles')  # adjust as appropriate
-load_dotenv(os.path.join(project_folder, '.env'))
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shivhare_store.settings')
 
