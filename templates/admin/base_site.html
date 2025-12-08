@@ -1,16 +1,23 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/base.html" %}
+{% load static %}
 
-{% block title %}{{ title }} | Shivhare Bangle Store Admin{% endblock %}
-
-{% block extrastyle %}
-<!-- Load Default Admin Styles First -->
-{{ block.super }}
-<!-- Inject Custom Premium Theme -->
-<link rel="stylesheet" type="text/css" href="/static/css/admin_custom.css">
+{% block title %}
+{{ title }} | Shivhare Bangle Store
 {% endblock %}
 
 {% block branding %}
 <h1 id="site-name">
-    <a href="{% url 'admin:index' %}">Shivhare Bangle Store</a>
+    <a href="{% url 'admin:index' %}">
+        Shivhare Bangle Store
+    </a>
 </h1>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin_ultra.css' %}?v=1">
+{% endblock %}
+
+{% block nav-global %}
+{# Clean top nav, remove clutter #}
 {% endblock %}

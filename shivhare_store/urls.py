@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('analytics/', include('analytics.urls')),
+    # Authentication URLs for Password Reset
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', include('store.urls')),
+    path('analytics/', include('analytics.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

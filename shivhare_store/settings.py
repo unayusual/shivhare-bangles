@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-%4f4#^%d2sfl%@-8g&pju((=0h^0wq3lxk-1a$yv^%-3b)5ov&
 import os
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 CSRF_TRUSTED_ORIGINS = ['https://*.vercel.app']
 
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,10 +83,10 @@ WSGI_APPLICATION = 'shivhare_store.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://neondb_owner:npg_CdcAxHu79OwB@ep-summer-wave-ad53trkw-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -128,9 +127,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-# Use non-manifest storage to avoid 500 errors if a file is missing
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-WHITENOISE_USE_FINDERS = True
 
 # Media files (User uploaded images)
 MEDIA_URL = '/media/'
@@ -141,5 +137,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Use cookie-based sessions for Vercel (Read-only DB)
-SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+# Session Security: Expire on browser close, requiring login every time.
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 300  # 5 minutes inactivity timeout (Strict)
+SESSION_SAVE_EVERY_REQUEST = True  # Refresh session on every request
+
+# Email Backend for Password Reset (Development)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

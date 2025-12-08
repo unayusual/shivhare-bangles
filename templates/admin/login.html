@@ -1,0 +1,25 @@
+{% extends "admin/login.html" %}
+{% load i18n static %}
+
+{% block content %}
+{{ block.super }}
+<div class="submit-row" style="text-align: center; margin-top: 10px; background: none; box-shadow: none; border: none;">
+    <a href="{% url 'password_reset' %}" style="color: var(--color-primary); font-size: 14px; text-decoration: none;">
+        {% trans "Forgot your password?" %}
+    </a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const usernameInput = document.getElementById('id_username');
+        const passwordInput = document.getElementById('id_password');
+        
+        if (usernameInput) {
+            usernameInput.placeholder = 'Username';
+        }
+        if (passwordInput) {
+            passwordInput.placeholder = 'Password';
+        }
+    });
+</script>
+{% endblock %}

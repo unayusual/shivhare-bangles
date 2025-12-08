@@ -1,269 +1,146 @@
-/* Admin Custom CSS - Premium Teal/Gold Theme */
+/* RESTORED PREMIUM AESTHETIC (Clean Version) */
+
+/* Import Exact Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root {
-    --primary-color: #00695C;
-    --primary-dark: #004D40;
-    --secondary-color: #003D33;
-    --accent: #D4AF37;
-    --bg-color: #f0fdfa;
-    /* Very light teal tint */
-    --white: #ffffff;
-    --text-color: #2C3E50;
-    --glass-bg: rgba(255, 255, 255, 0.95);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --shadow-soft: 0 4px 20px rgba(0, 105, 92, 0.08);
+    --brand-teal: #004d40;
+    --brand-gold: #c5a059;
+    --brand-cream: #f9f9f9;
+    --brand-white: #ffffff;
+
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
 }
 
+/* Base Reset */
 body {
-    font-family: 'Montserrat', sans-serif !important;
-    background-color: var(--bg-color) !important;
-    color: var(--text-color) !important;
-    background-image: linear-gradient(135deg, #f0fdfa 0%, #e0f2f1 100%);
-    min-height: 100vh;
+    background-color: var(--brand-cream) !important;
+    font-family: var(--font-body) !important;
+    color: var(--brand-teal) !important;
+    margin: 0;
 }
 
-/* Header */
+/* --- HEADER (Clean White & Gold) --- */
 #header {
-    background: var(--primary-dark) !important;
-    color: var(--white) !important;
-    border-bottom: 2px solid var(--accent);
-    padding: 20px 40px !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: var(--brand-white) !important;
+    color: var(--brand-teal) !important;
+    border-bottom: 2px solid var(--brand-gold) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    padding: 15px 30px !important;
+    height: auto !important;
 }
 
 #header #branding h1 {
-    font-family: 'Cormorant Garamond', serif !important;
-    font-size: 2.2rem !important;
+    font-family: var(--font-heading) !important;
+    color: var(--brand-teal) !important;
+    font-size: 26px !important;
     font-weight: 700 !important;
-    letter-spacing: 1px;
-    color: var(--accent) !important;
-    /* Gold Title */
+    margin: 0 !important;
 }
 
-/* Hide "Welcome, Admin" clutter, make it cleaner */
-#user-tools {
-    font-size: 0.85rem !important;
-    font-weight: 500;
-    opacity: 0.9;
+#header a:link,
+#header a:visited,
+#header .user-tools {
+    color: var(--brand-teal) !important;
 }
 
-/* Breadcrumbs - Float them */
-.breadcrumbs {
-    background: transparent !important;
-    padding: 20px 40px !important;
-    color: #666 !important;
-    font-size: 0.9rem;
-    box-shadow: none !important;
+/* --- MODULES / APPS (The "Boxes") --- */
+.module,
+#content-related {
+    background: var(--brand-white) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+    margin-bottom: 25px !important;
 }
 
-.breadcrumbs a {
-    color: var(--primary-color) !important;
-    font-weight: 600;
+/* Module Headers (FIX: White BG, Teal Text - No Dark Blocks) */
+div.module caption,
+.module h2,
+#content-related h3 {
+    background: var(--brand-white) !important;
+    color: var(--brand-teal) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    padding: 15px 20px !important;
+    border-bottom: 1px solid var(--brand-gold) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
 }
 
-/* Main Content Container - The Glass Card */
-#content {
-    margin: 0 40px 40px !important;
-    background: var(--glass-bg);
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
-    padding: 40px !important;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-}
-
-#content h1 {
-    font-family: 'Cormorant Garamond', serif !important;
-    color: var(--primary-dark) !important;
-    font-size: 3rem !important;
-    margin-bottom: 30px !important;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 15px;
-    display: inline-block;
-}
-
-/* Modules / Dashboard Cards */
-.module {
-    margin-bottom: 30px !important;
-    border: none !important;
-    background: transparent !important;
-}
-
-.module caption {
-    background: transparent !important;
-    color: var(--primary-color) !important;
-    font-size: 1.2rem !important;
-    font-family: 'Cormorant Garamond', serif !important;
-    font-weight: 700 !important;
-    margin-bottom: 15px !important;
-    text-align: left !important;
-    padding: 0 !important;
-}
-
-/* Tables - The Floating Row Look */
+/* --- TABLES --- */
 table {
-    width: 100%;
-    border-collapse: separate !important;
-    border-spacing: 0 10px !important;
-    /* Spacing between rows */
-    background: transparent !important;
-    border: none !important;
+    width: 100% !important;
+    background: var(--brand-white) !important;
+    border-collapse: collapse !important;
 }
 
 thead th {
-    background: transparent !important;
-    color: #888 !important;
+    background: var(--brand-cream) !important;
+    color: var(--brand-teal) !important;
+    border-bottom: 2px solid var(--brand-gold) !important;
     font-weight: 600 !important;
-    text-transform: uppercase;
-    font-size: 0.75rem !important;
-    letter-spacing: 1px;
-    padding: 0 20px 10px !important;
-    border: none !important;
+    text-transform: uppercase !important;
+    padding: 12px 15px !important;
 }
 
-tbody tr {
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-radius: 8px;
-    /* Rounded rows */
+tbody td,
+tbody th {
+    border-bottom: 1px solid #eee !important;
+    padding: 15px !important;
+    color: #333 !important;
+    /* Readable dark grey */
+    font-size: 13px !important;
 }
 
-tbody tr:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+tbody tr:hover td {
+    background-color: #fbfbfb !important;
 }
 
-tbody td {
-    padding: 20px !important;
-    border: none !important;
-    vertical-align: middle !important;
-}
-
-/* First and last cells rounded */
-tbody td:first-child {
-    border-radius: 8px 0 0 8px;
-}
-
-tbody td:last-child {
-    border-radius: 0 8px 8px 0;
-}
-
+/* --- LINKS & BUTTONS --- */
 a:link,
 a:visited {
-    color: var(--text-color);
-    font-weight: 500;
+    color: var(--brand-teal) !important;
+    text-decoration: none !important;
 }
 
-/* Buttons */
-.button,
+a:hover {
+    color: var(--brand-gold) !important;
+}
+
+/* Primary Buttons (Teal with Gold Shadow) */
 input[type=submit],
-.submit-row input {
-    background: var(--primary-color) !important;
-    color: var(--white) !important;
-    padding: 12px 25px !important;
-    border-radius: 30px !important;
-    /* Pill shape */
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    box-shadow: 0 4px 10px rgba(0, 105, 92, 0.3);
+.submit-row input,
+a.button {
+    background: var(--brand-teal) !important;
+    color: var(--brand-white) !important;
+    border: none !important;
+    padding: 10px 25px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.2s !important;
+    cursor: pointer !important;
 }
 
-.button:hover,
-input[type=submit]:hover {
-    background: var(--primary-dark) !important;
+input[type=submit]:hover,
+.submit-row input:hover {
+    background: #003d33 !important;
+    /* Darker Teal */
     transform: translateY(-1px);
 }
 
-.button.default,
-input.default {
-    background: var(--accent) !important;
-    /* Gold */
-    color: #fff !important;
-    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+/* --- LOGIN PAGE --- */
+.login {
+    background: var(--brand-cream) !important;
 }
 
-/* Filter Sidebar */
-#changelist-filter {
-    background: white !important;
-    border-radius: 8px;
-    padding: 20px !important;
-    box-shadow: var(--shadow-soft);
-    border: none !important;
-    margin-left: 20px;
-}
-
-#changelist-filter h2 {
-    background: transparent !important;
-    color: var(--primary-color) !important;
-    font-family: 'Cormorant Garamond', serif !important;
-    font-size: 1.5rem !important;
-    padding: 0 0 10px !important;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--accent);
-}
-
-#changelist-filter ul {
-    padding-left: 0 !important;
-}
-
-#changelist-filter li {
-    margin-bottom: 10px;
-    list-style: none;
-}
-
-#changelist-filter a {
-    color: #666 !important;
-    font-size: 0.9rem;
-}
-
-#changelist-filter a.selected {
-    color: var(--primary-color) !important;
-    font-weight: 700;
-}
-
-/* Search Bar - Aesthetic */
-#toolbar {
-    background: white !important;
-    padding: 10px !important;
-    border-radius: 50px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 30px !important;
-    border: 1px solid #eee;
-}
-
-#toolbar form input[type="submit"] {
-    margin: 0 !important;
-    border-radius: 30px !important;
-    height: 36px !important;
-    padding: 0 20px !important;
-    box-shadow: none !important;
-}
-
-#toolbar #searchbar {
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    font-size: 1rem !important;
-    padding-left: 15px !important;
-    width: 300px;
-}
-
-#toolbar #searchbar:focus {
-    outline: none;
-}
-
-/* Images */
-td.field-image_tag img,
-td.field-product_image img {
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 60px !important;
-    /* Larger thumbnails */
-    height: 60px !important;
+.login .content-main {
+    background: var(--brand-white) !important;
+    border-top: 4px solid var(--brand-gold) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
 }
