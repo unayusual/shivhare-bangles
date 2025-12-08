@@ -117,28 +117,24 @@ A Django-based e-commerce web application for selling bangles with built-in anal
 
 ### Step 3: Run Migrations on Vercel
 
-After deployment, you need to run migrations. You can do this by:
-
-1. Using Vercel CLI locally:
-   ```bash
-   # This will run the build.sh script which includes migrations
-   vercel deploy
-   ```
-
-2. Or SSH into Vercel (if available) and run:
-   ```bash
-   python manage.py migrate
-   ```
+After deployment, migrations will be run automatically via the `build.sh` script during the build process. The build script includes:
+```bash
+python manage.py collectstatic --no-input
+python manage.py migrate
+```
 
 ### Step 4: Create Admin User on Production
 
-You'll need to create a superuser for production. Since Vercel is serverless, you can:
+You'll need to create a superuser for production. Since Vercel is serverless, the recommended approach is:
 
-1. Temporarily set up a management command or
-2. Use Django shell in a local environment connected to NeonDB:
-   ```bash
-   DATABASE_URL=your-neondb-url python manage.py createsuperuser
-   ```
+1. **Temporarily connect locally to NeonDB** (safest method):
+   - Create a `.env.production` file with your production DATABASE_URL
+   - Load it and run: `python manage.py createsuperuser`
+   - Delete the `.env.production` file immediately after
+   
+2. **Alternative**: Create a custom management command to set up an initial admin user during deployment
+
+**Security Note**: Never include database credentials in shell history or version control.
 
 ## Environment Variables
 
